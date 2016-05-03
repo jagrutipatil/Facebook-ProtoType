@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/sticky-footer.css">
+<link rel="stylesheet" href="css/custom.css">
+<title>Facebook-login</title>
+</head>
+<body ng-app="facebook" ng-controller="fbController">
+	<div id="wrap">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">facebook</a>
+				</div>
+
+				<div class="collapse navbar-collapse">
+					<form class="navbar-form navbar-right" id="header-form" role="form">
+						<div class="lt-left">
+							<div class="form-group">
+								<label for="emailPhone">Email or Phone</label> <input
+									type="email" class="form-control input-sm" id="emailPhone"
+									placeholder="Email or Phone" ng-model="username">
+							</div>
+							<div class="form-group">
+								<label for="inputPassword">Password</label> <input
+									type="password" class="form-control input-sm"
+									id="inputPassword" placeholder="Password" ng-model="password">
+							</div>
+							<div class="checkbox">
+								<label> <input type="checkbox"> Remember me
+								</label>
+							</div>
+						</div>
+						<div class="lt-right">
+							<button type="submit" class="login-btn" ng-click="login()">Login</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="home">
+			<div class="row">
+				<div class="col-md-7">
+					<h3 class="slogan">Facebook helps you connect and share with the people in your life.</h3>
+					<img src="../images/login.png" class="img-responsive"/>
+				</div>
+				<div class="col-md-5">
+					<form class="form" role="form">
+						<legend>
+							<h1>Sign up</h1>
+						</legend>
+						<h4>It's free and always will be.</h4>
+						<div class="row">
+							<div class="col-xs-6 col-md-6">
+								<input class="form-control input-md" name="firstname" ng-model="firstname" placeholder="First Name" type="text" autofocus />
+							</div>
+							<div class="col-xs-6 col-md-6">
+								<input class="form-control input-md" name="lastname" ng-model="lastname" placeholder="Last Name" type="text" />
+							</div>
+						</div>
+						<input class="form-control input-md" name="youremail" placeholder="Your Email" type="email" ng-model="susername"/> 
+            <input class="form-control input-md" name="reenteremail" placeholder="Re-enter Email" type="email"/>
+            <input class="form-control input-md" name="password" placeholder="New Password" type="password" ng-model="spassword"/> 
+            <label for=""><h4>Birth Date</h4> </label>
+						<div class="row">
+							<div class="col-xs-3 col-md-3">
+								<select class="form-control input-xs">
+									<option value="Month">Month</option>
+                  <option value="Jan">Jan</option>
+                  <option value="Feb">Feb</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="Aug">Aug</option>
+                  <option value="Sept">Sept</option>
+                  <option value="Oct">Oct</option>
+                  <option value="Nov">Nov</option>
+                  <option value="Dec">Dec</option>
+								</select>
+							</div>
+							<div class="col-xs-3 col-md-3">
+								<select class="form-control input-xs">
+									<option value="Day">Day</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+								</select>
+							</div>
+							<div class="col-xs-3 col-md-3">
+								<select class="form-control input-xs">
+									<option value="Year">Year</option>
+                  <option value="1983">1983</option>
+                  <option value="1984">1984</option>
+                  <option value="1985">1985</option>
+                  <option value="1986">1986</option>
+                  <option value="1987">1987</option>
+                  <option value="1988">1988</option>
+                  <option value="1989">1989</option>                  
+                  <option value="1990">1990</option>
+                  <option value="1991">1991</option>
+                  <option value="1992">1992</option>
+                  <option value="1993">1993</option>
+                  <option value="1994">1994</option>
+                  <option value="1995">1995</option>
+                  <option value="1996">1996</option>
+                  <option value="1997">1997</option>
+                  <option value="1998">1998</option>
+								</select>
+							</div>
+						</div>
+						<label class="radio-inline"> <input type="radio" name="sex" id="inlineCheckbox1" ng-click="setGender('Male')" value="male" />
+							<h5>Male</h5>
+						</label> 
+            <label class="radio-inline"> <input type="radio" name="sex" id="inlineCheckbox2" value="female" ng-click="setGender('Female')"/>
+							<h5>Female</h5>
+						</label> <br /> 
+            <span class="help-block">
+							<h5>By clicking Create my account, you agree to our Terms
+								and that you have read our Data Use Policy, including our Cookie
+								Use.</h5>
+						</span>
+						<button class="btn btn-lg btn-primary btn-block signup-btn"
+							type="submit" ng-click="signup()">Sign Up</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="container">
+			<p class="text-muted credit">
+				<a href="#">facebook.com</a>
+			</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="../controllers/fbController.js"></script>
+</body>
+</html>

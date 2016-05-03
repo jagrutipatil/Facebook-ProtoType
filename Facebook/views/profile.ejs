@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<!--link rel="stylesheet" href="css/custom.css"-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/profile.css">
+<title>Profile</title>
+</head>
+<body ng-app="profile" ng-controller="profController">
+	<div class="container">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><span class="nev-button"><b>facebook</b></span></a>
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-collapse">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="input-group input-group-md" style="max-width: 2020px;">
+						<input type="text" class="typeahead form-control"
+							placeholder="Find people and groups..." name="srch-term"
+							id="srch-term" size="50">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" ng-click="profile()" style="color: #fff">Profile</a></li>
+					<li><a href="#" ng-click="home()" style="color: #fff">Home</a></li>
+					<li><a href="#getGroups" ng-click="getAllGroups()" data-toggle="modal" style="color: #fff">Groups</a></li>
+					<li><a href="#getFriends" ng-click="getAlladdFriend()" data-toggle="modal" 	style="color: #fff"><i class="glyphicon glyphicon-user"></i></a></li>
+					<li class="dropdown"><a href="#" style="color: #fff"
+						class="dropdown-toggle" data-toggle="dropdown"><i
+							class="glyphicon glyphicon-triangle-bottom"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="#cGroups" data-toggle="modal">Create Groups</a></li>
+							<li><a href="#dGroups" data-toggle="modal" ng-click="getAllGroups()">Delete Groups</a></li>
+							<li><a href="#" ng-click="logout()">Logout</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="cGroups" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-faded">
+					<!--TODO Make Model Header Gray-->
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Create New Group</h4>
+				</div>
+				<div class="modal-body">
+					<label for="grpName">Group Name</label> <input type="text" ng-model="grpName" id="grpName"> <br> <br>
+					<label for="grp_desc">Description</label>
+					<textarea rows="5" cols="80" ng-model="grp_desc" id="grp_desc"></textarea>
+					<br>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="create_Group()">Create</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="dGroups" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-faded">
+					<!--TODO Make Model Header Gray-->
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Delete Groups</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="x in ownedgroupList">
+								<td>{{x.grpname}}</td>
+								<td>{{x.descr}}</td>
+								<td>
+									<button
+											type="button" class="btn btn-primary" data-dismiss="modal"
+											ng-click="deleteGroup(x.grpname)">Delete</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="getGroups" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-faded">
+					<!--TODO Make Model Header Gray-->
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Groups</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+								<th>Join</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="x in groupList">
+								<td><a href="#" ng-click="goToGroup(x.grpname)"
+									data-toggle="modal">{{x.grpname}}</a></td>
+								<td>{{x.descr}}</td>
+								<td>
+									<!--span ng-init="false" ng-show="x.makevisible"><input type="checkbox" ng-click="addToGroupList(grpname)"></span-->
+									<span ng-init="false" ng-show="x.makevisible"><button
+											type="button" class="btn btn-primary" data-dismiss="modal"
+											ng-click="addToGroup(x.grpname)">Join</button></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<!--button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="joinGroup()">Join</button-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="getFriends" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-faded">
+					<!--TODO Make Model Header Gray-->
+					<button type="button" class="close" data-dismiss="modal">&times;</button>					
+				</div>
+				<div class="modal-body">
+					<h4 class="modal-title">Friend Requests</h4>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Email ID</th>
+								<th></th>
+								<th></th>								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="x in recevFriendReqs">																
+								<td>{{x.fName}} {{x.lName}}</td>
+								<td>{{x.uname}}</td>
+								<td></td>
+								<td>																			
+										<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="acceptFriendReq(x.uname)">Accept Friend Request</button>																													
+										<button type="button" class="btn">Delete</button>
+								</td>
+								
+							</tr>
+						</tbody>
+					</table>
+					<h4 class="modal-title">Add Friends</h4>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Email ID</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="x in addFriends" ng-init="false" ng-show="x.makevisible">																
+								<td>{{x.fName}} {{x.lName}}</td>
+								<td>{{x.uname}}</td>
+								<td>
+									<span ng-init="false" ng-show="x.makevisible">
+										<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="sendFriendRequest(x.uname)">Add Friend</button></span>									
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<!--button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="joinGroup()">Join</button-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-11">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1>{{firstname}} {{lastname}}</h1>
+				</div>
+				<div class="padding-zero">
+					<nav class="navbar navbar-light bg-faded">
+						<ul class="nav nav-tabs">
+							<li class="nav-item active"><a class="nav-link"
+								href="#timeline">Timeline <span class="sr-only">(current)</span>
+							</a></li>
+							<li class="nav-item"><a class="nav-link" href="#about">About</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="#friends">Friends</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="#music">Music</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="#shows">Shows</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="#sports">Sports</a>
+							</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown"> More <b class="caret"></b>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Intrests</a></li>
+								</ul></li>
+						</ul>
+						<div class="tab-content">
+							<div id="timeline" class="tab-pane fade in active">
+								<br> <br>
+								<div class="col-md-4">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="row">
+														<div class="col-md-10">
+															<i class="glyphicon glyphicon-education"></i>&nbsp <span
+																class="text-muted"> Studied at </span><span
+																style="color: #4c66a4"> {{education}}</span><br> <br>
+															<i class="glyphicon glyphicon-briefcase"></i>&nbsp<span
+																class="text-muted"> Worked at </span> <span
+																style="color: #4c66a4"> {{work}}</span><br> <br>
+															<i class="glyphicon glyphicon-phone-alt"></i>&nbsp<span
+																class="text-muted"> Phone No:</span> <span
+																style="color: #4c66a4"> {{phoneno}} </span><br> <br>
+
+															<i class="glyphicon glyphicon-envelope"></i>&nbsp<span
+																class="text-muted"> Email:</span> <span
+																style="color: #4c66a4"> {{emailid}}</span><br> <br>
+															<i class="glyphicon glyphicon-user"></i>&nbsp <span
+																class="text-muted"> Gender:</span><span
+																style="color: #4c66a4"> {{gender}} </span><br> <br>
+															<span class="text-muted"> Born on</span> April 22, 1991 <br>
+															<br> <br> <small class="text-muted">Created:
+																June 1, 2011</small>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<button class="btn btn-default pull-right">
+														<i class="glyphicon glyphicon-pencil"></i> Edit
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7">
+									<div class="status">
+										<div class="well">
+											<form class="form-horizontal" role="form"
+												style="padding: 5px;">
+												<h4>What's New</h4>
+												<div class="form-group" style="padding: 5px;">
+													<textarea class="form-control"
+														placeholder="Update your status"></textarea>
+												</div>
+												<span class="zero-top-padding">
+													<button class="btn btn-primary pull-right" type="button">Post</button>
+													<ul class="list-inline">
+														<li><a href=""><i
+																class="glyphicon glyphicon-upload"></i></a></li>
+														<li><a href=""><i
+																class="glyphicon glyphicon-camera"></i></a></li>
+														<li><a href=""><i
+																class="glyphicon glyphicon-map-marker"></i></a></li>
+													</ul>
+												</span>
+											</form>
+										</div>
+									</div>
+									<div>
+										<ul class="timeline">
+											<li class="timeline-inverted">
+												<div class="timeline-panel">
+													<div class="timeline-heading">
+														<h4>Timeline Event</h4>
+													</div>
+													<div class="timeline-body">
+														<p>Completed Education from {{education}}
+															</p>
+													</div>
+													<div class="timeline-footer">
+														<p class="text-right">July 22, 2012</p>
+													</div>
+												</div>
+											</li>
+											<li class="clearfix no-float"></li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div id="about" class="tab-pane fade">
+								<div class="col-md-5">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="row">
+														<div class="col-md-12">
+															<i class="glyphicon glyphicon-education"></i>&nbsp <span
+																class="text-muted"> Studied at </span><span
+																style="color: #4c66a4"> {{education}}</span><br> <br>
+															<i class="glyphicon glyphicon-briefcase"></i>&nbsp<span
+																class="text-muted"> Worked at </span> <span
+																style="color: #4c66a4"> {{work}}</span><br> <br>
+															<i class="glyphicon glyphicon-phone-alt"></i>&nbsp<span
+																class="text-muted"> Phone No:</span> <span
+																style="color: #4c66a4"> {{phoneno}} </span><br> <br>
+
+															<i class="glyphicon glyphicon-envelope"></i>&nbsp<span
+																class="text-muted"> Email:</span> <span
+																style="color: #4c66a4"> {{emailid}}</span><br> <br>
+															<i class="glyphicon glyphicon-user"></i>&nbsp <span
+																class="text-muted"> Gender:</span><span
+																style="color: #4c66a4"> {{gender}} </span><br> <br>
+															<span class="text-muted"> Born on</span> April 22, 1991 <br>
+															<br> <br> <small class="text-muted">Created:
+																June 1, 2011</small>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<button class="btn btn-default pull-right">
+														<i class="glyphicon glyphicon-pencil"></i> Edit
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="music" class="tab-pane fade">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-12">
+													<!-- apply ng-repeat here for more music intrests-->
+													<ul>
+														<li> <span> A.R Rehaman</span> </li>
+														<li> <span> Coke Studio </span> </li>
+														<li> <span> Lata Mangeshkar</span> </li>
+													</ul>
+													<button class="btn btn-default pull-right">
+														<i class="glyphicon glyphicon-pencil"></i> Edit
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="sports" class="tab-pane fade">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-12">
+													<!-- apply ng-repeat here for more music intrests-->
+													<ul>
+														<li> <span> Football</span> </li>
+														<li> <span> VollyBoll </span> </li>
+														<li> <span> Hockey</span> </li>
+														<li> <span> Circket</span> </li>
+													</ul>													
+													<button class="btn btn-default pull-right">
+														<i class="glyphicon glyphicon-pencil"></i> Edit
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="friends" class="tab-pane fade">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-12">
+													<table class="table">
+													<thead>
+															<tr><th>Name</th>
+																<th>Email Id</th>
+															</tr>
+													</thead>
+									       <tbody>
+													<tr ng-repeat="x in friendList">
+											       <td>{{x.fName}} {{x.lName}}</td>
+											       <td>{{x.uname}}</td>
+										      </tr>
+									       </tbody>
+								</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="shows" class="tab-pane fade">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-12">
+													<!-- apply ng-repeat here for more music intrests-->
+													<ul>
+														<li> <span> Big Band Theory </span> </li>
+														<li> <span> Vampire Dairies </span> </li>
+														<li> <span> How I mate your mother </span> </li>
+													</ul>													
+													<button class="btn btn-default pull-right">
+														<i class="glyphicon glyphicon-pencil"></i> Edit
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<script type="text/javascript" src="/controllers/profController.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".nav-tabs a").click(function() {
+				$(this).tab('show');
+			});
+		});
+	</script>
+</body>
+</html>

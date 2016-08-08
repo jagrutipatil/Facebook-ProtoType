@@ -15,61 +15,57 @@ Technologies:<br/>
 
 <b>Project Images:</b><br/>
 Login Page:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/user/login.png"/><br/>
+<img  width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/user/login.png"/><br/>
 <br/>
 
 Home Page:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/gogintoProfilePage(from-Profilenev).png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/gogintoProfilePage(from-Profilenev).png"/><br/>
 <br/>
 
 Profile Page:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/frnd_request/profilePage.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/frnd_request/profilePage.png"/><br/>
 <br/>
 
 News Feed:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/newsFeed/newsfeed1.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/newsFeed/newsfeed1.png"/><br/>
 <br/>
 
 Sending Friend request and accepting friend request:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/frnd_request/jagruti_req_frm_manthan_doshi.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/frnd_request/jagruti_req_frm_manthan_doshi.png"/><br/>
 <br/>
 
 Show existing friends:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/frnd_request/Friends_of_jagruti.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/userAccount-about%2Cprofile%2Cinfo%20n%20all/frnd_request/Friends_of_jagruti.png"/><br/>
 <br/>
 
 Creating a Group 1:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/create_grp_1.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/create_grp_1.png"/><br/>
 <br/>
 
 Creating a Group 2:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/create_grp4.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/create_grp4.png"/><br/>
 <br/>
 
 Group Page:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/create_group5.png"/><br/>
-<br/>
-
-Group Page:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/create_group5.png"/><br/>
+<img width="75%" height="10%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/create_group5.png"/><br/>
 <br/>
 
 Add Members to group:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/Add_members_to_GRP(now%20allowing%20to%20aff%20gro%20owner%20as%20already%20member)_7.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/Add_members_to_GRP(now%20allowing%20to%20aff%20gro%20owner%20as%20already%20member)_7.png"/><br/>
 <br/>
 
 Show Existing members of group:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/added_Members_11.png"/><br/>
+<img width="75%" height="10%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/added_Members_11.png"/><br/>
 <br/>
 
 Join a group:<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/gogin_to_the_grp_19.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/gogin_to_the_grp_19.png"/><br/>
 <br/>
 
 Delete a group (Only owner will be able to delete group):<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/deleting_grp_27.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/Group/deleting_grp_27.png"/><br/>
 <br/>
 
 Logout from account::<br/>
-<img src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/user/signout.png"/><br/>
+<img width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/user/signout.png"/><br/>
 <br/>

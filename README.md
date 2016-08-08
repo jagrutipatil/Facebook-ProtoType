@@ -4,7 +4,7 @@
 2. Profile APIs: User overview, work and education, contact info, life events, friend list and interests.<br/>
 3. News Feeds: Latest updates from friends and groups subscribed.<br/>
 4. Group APIs: Create group, subscribe to group, delete group, show members in the group, add members in group, delete members in group, join a group.<br/>
-5. Friends APIs: Add friend, accept friend request, decline friend request.<br/>
+5. Friend operations APIs: Add friend, accept friend request, decline friend request.<br/>
 
 <b>Technologies:</b><br/>
  1. Front End UI: EJS, AngularJS, CSS, bootstrap<br/>

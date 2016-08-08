@@ -1,5 +1,5 @@
 # Facebook-ProtoType
-<h3>Developed a prototype of the Facebook web application, providing following REST services:</h3><br/>
+<h4>Developed a prototype of the Facebook web application, providing following REST services:</h4><br/>
 1. Userr: create account, login, logout, last time logged in.<br/>
 2. Profile Services: User overview, work and education, contact info, life events, friend list and interests.<br/>
 3. News Feeds: Latest updates from friends and groups subscribed.<br/>
@@ -14,7 +14,6 @@
 <br/>
 
 <b><h4>Project Images:</h4></b><br/>
-<br/>
 Login Page:<br/>
 <img  width="75%" height="75%" src = "https://github.com/jagrutipatil/Facebook-ProtoType/blob/master/Facebook/screenshots/facebook/user/login.png"/><br/>
 <br/>

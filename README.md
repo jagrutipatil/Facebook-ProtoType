@@ -5,13 +5,11 @@
 3. News Feeds: Latest updates from friends and groups subscribed.<br/>
 4. Group Services: Create group, subscribe to group, delete group, show members in the group, add members in group, delete members in group, join a group.<br/>
 5. Friends Services: Add friend, accept friend request, decline friend request.<br/>
-<br/>
 
 <b>Technologies:</b><br/>
 1. Front End UI: EJS, AngularJS, CSS, bootstrap<br/>
 2. Client/Server: NodeJS, Express.<br/>
 3. Performance Testing: JMeter<br/>
-<br/>
 <br/>
 
 <b><h4>Project Images:</h4></b>
